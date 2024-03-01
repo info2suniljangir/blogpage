@@ -1,0 +1,17 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login input {
+    padding: 10px;
+
+}
+
+.submitButton {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+

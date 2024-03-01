@@ -1,0 +1,50 @@
+.links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuButton {
+    display: none;
+    border: none;
+    background: transparent;
+}
+
+.accountActionButton {
+    padding: 10px;
+}
+
+.mobileLinks {
+    background-color: rebeccapurple;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: calc(100vh - 100px);
+
+}
+
+.hamburgerMenu {
+    color: white;
+}
+
+
+@media (max-width: 767px) {
+    .links {
+        display: none;
+    } 
+    .menuButton {
+        display: block;
+    }
+}
+
+@media (min-width: 767px) {
+    .mobileLinks {
+        display: none;
+    }
+}

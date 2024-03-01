@@ -1,0 +1,78 @@
+
+:root {
+    --bg : #0d0c22;
+    --bgSoft : #2d2b42;
+    --text : white;
+    --textSoft : #e5e5e5;
+    --btn : #3673fd;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+a {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: none;
+    
+}
+
+.container {
+    /* background-color: rebeccapurple; */
+    height: 100vh;
+    max-height: 100vh;
+    width: 1200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media (max-width: 1400) {
+    .container {
+        width: 1200px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .container {
+        width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 576px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .container {
+        width: 440px;
+    }
+}
+
+
+
+
+
+
+

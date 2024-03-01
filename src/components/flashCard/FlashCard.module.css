@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+
+.imageContainer {
+    position: relative;
+    width: 90%;
+    height: 300px;
+}
+
+.img {
+    object-fit: cover;
+}
+
+.date {
+    font-size: 12x;
+    color: white;
+    transform: rotate(270deg);
+    /* height: 10%; */
+    
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.description {
+    width: 80%;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: gray;
+    font-size: 10px;
+}
+
+.link {
+    text-decoration: underline;
+}
+

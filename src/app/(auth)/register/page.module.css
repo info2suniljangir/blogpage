@@ -1,0 +1,9 @@
+
+.container {
+    width: 500px;
+}
+
+.wrapper {
+    border: 1px solid white;
+    padding: 20px;
+}

@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    gap: 100px;
+
+}
+
+.imgContainer {
+    flex: 1;
+    height: calc(100vh - 200px);
+    position: relative;
+    max-width: 400px;
+}
+
+.img {
+    object-fit: cover;
+}
+
+.textContainer { 
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 64px;
+}
+
+.detail {
+    display: flex;
+    gap: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+.avatar img {
+    border-radius: 50%;
+}
+
+.detailText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.detailTitle {
+    font-weight: bold;
+    color: gray;
+
+}
+
+.detailValue {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
