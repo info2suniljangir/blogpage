@@ -11,7 +11,7 @@ const login = async (credentials) => {
     // console.log(credentials);
     try {
         connectToDb();
-        const user = await User.findOne({username : credentials.username});
+        const user = await User.findOne({username : credentials.username}).lean().exec();
 
 
         if (!user) {
@@ -42,7 +42,6 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
             async authorize(credentials) {
                 try {
                     const user = await login(credentials);
-                    console.log(user);
                     return user;
                 } catch (error) {
                     return null;

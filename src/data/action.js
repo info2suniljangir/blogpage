@@ -5,9 +5,10 @@ import { Post } from "./models";
 import { signIn, signOut } from "./auth";
 import { User } from "./models";
 import bcrypt from "bcrypt";
+import { revalidatePath } from "next/cache";
 
-// addItem and removeItem are server actitons
-export const addItem = async (formData) => {
+// addItem and remove posts
+export const addItem = async (previousState, formData) => {
     const {title, description, userId, slug, img} = Object.fromEntries(formData.entries());
     try {
         connectToDb();
@@ -19,6 +20,7 @@ export const addItem = async (formData) => {
 
     } catch (error) {
         console.log(error.message);
+        return {error: "something went wrong"};
     }
 }
 
@@ -35,6 +37,46 @@ export const removeItem = async (formData) => {
     }
 };
 
+
+// ADD OR REMOVE USER
+export const addUser = async (previousState ,formData) => {
+    // in form actions the first parameter is previousState and second is formData
+    const {username,  email, password, isAdmin, img } = Object.fromEntries(formData.entries());
+    try {
+        connectToDb();
+        const newUser = new User({username,  email, password, img, isAdmin});
+        
+        // mongoose method
+        await newUser.save();
+        console.log("user saved successfully");
+        // the two path is revalidated 
+        revalidatePath("/blog");
+        revalidatePath("/admin");
+
+    } catch (error) {
+        console.log(error.message);
+        return {error: "user can't be added successfully"};
+    }
+}
+
+export const deleteUser = async (formData) => {
+    const {id} = Object.fromEntries(formData.entries());
+
+    try {
+        connectToDb();
+        // mongoose method
+        await Post.deleteMany({userId: id})
+        await User.findByIdAndDelete(id);
+        console.log("successfully user deleted");
+        revalidatePath("/admin");
+        revalidatePath("/admin");
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
+
+// AUTH SERVER ACTIONS
 export  const handleSignWithGithub = async () => {
     "use server"
       await signIn("github");
